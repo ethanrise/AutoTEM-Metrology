@@ -43,6 +43,7 @@ The framework follows a **"Semantic-to-Deterministic"** logic:
 ```bash
 git clone https://github.com/ethanrise/AutoTEM-Metrology.git
 cd AutoTEM-Metrology
+git submodule update --init --recursive
 pip install -r requirements.txt
 ```
 
