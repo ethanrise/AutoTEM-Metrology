@@ -41,7 +41,7 @@ The framework follows a **"Semantic-to-Deterministic"** logic:
 
 ### Installation
 ```bash
-git clone https://github.com/YourUsername/AutoTEM-Metrology.git
+git clone https://github.com/ethanrise/AutoTEM-Metrology.git
 cd AutoTEM-Metrology
 pip install -r requirements.txt
 ```
