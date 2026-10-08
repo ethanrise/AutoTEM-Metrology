@@ -18,6 +18,12 @@ By integrating **Vision-Language Models (VLM)** and **SAM 2** for semantic local
 >
 > Everything else described below (VLM localization, SAM 2, sub-pixel measurement, calibration, `MetrologyAgent` API) is **planned, not yet implemented**. Benchmark figures are **design targets, not measured results**.
 >
+> **Main blocker: lack of real TEM data.** The project currently has no access to real semiconductor cross-section TEM/STEM images (dm3/dm4 with pixel-scale metadata), which are required to validate measurement accuracy against manual or reference measurements.
+>
+> **🤝 Looking for collaborators / data partners.** If you have (or can share de-identified) TEM/STEM cross-section data, have a concrete metrology need, or are interested in collaborating, please get in touch — development will be restarted. Even a small set of images with manual measurements is enough to start validation.
+> - 📧 Email: **ethanrise.ai@gmail.com**
+> - 💬 Or open a [GitHub Issue](https://github.com/ethanrise/AutoTEM-Metrology/issues)
+>
 > **Planned restart path:** synthetic cross-section data with ground truth → sub-pixel erf edge fitting with uncertainty → Si-lattice FFT self-calibration of pixel scale → open precision benchmark.
 
 ---
@@ -118,4 +124,4 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 ---
 
 
-*Open for technical discussions on High-precision Metrology, Industrial Agents, and Remote Collaboration.*
+*Open for technical discussions on High-precision Metrology, Industrial Agents, and Remote Collaboration. Data partnerships are especially welcome — contact: ethanrise.ai@gmail.com*
