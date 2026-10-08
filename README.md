@@ -8,12 +8,24 @@
 
 By integrating **Vision-Language Models (VLM)** and **SAM 2** for semantic localization with **classical sub-pixel OpenCV algorithms** for deterministic measurement, this project provides a robust solution for laboratory-grade inspection that bridges the gap between AI-driven perception and physical measurement accuracy.
 
+> [!WARNING]
+> **Status: Paused / Experimental (2026-10)**
+>
+> This project is an early prototype and development is currently paused. **Implemented so far:**
+> - `utils/load_dm.py` — dm3/dm4 loading and metadata (pixel scale) via HyperSpy
+> - `utils/image_slicer.py` — large-image tiling with Hann/Gaussian blending
+> - `models/dinov3_seg.py` — DINOv3 multi-layer feature extraction skeleton (segmentation head **not trained**)
+>
+> Everything else described below (VLM localization, SAM 2, sub-pixel measurement, calibration, `MetrologyAgent` API) is **planned, not yet implemented**. Benchmark figures are **design targets, not measured results**.
+>
+> **Planned restart path:** synthetic cross-section data with ground truth → sub-pixel erf edge fitting with uncertainty → Si-lattice FFT self-calibration of pixel scale → open precision benchmark.
+
 ---
 
 ## 🌟 Key Features
 
 - **Hybrid Perception Pipeline:** Leverages VLMs for intelligent ROI identification and SAM 2 for precise feature segmentation, followed by classical CV for final measurement.
-- **Sub-pixel Precision:** Implements advanced sub-pixel edge detection kernels to achieve measurement errors **≤0.3mm** (at specific magnification), outperforming standard pixel-level analysis.
+- **Sub-pixel Precision:** Implements advanced sub-pixel edge detection kernels to achieve measurement errors **≤0.3 nm** (target, at specific magnification), outperforming standard pixel-level analysis.
 - **Industrial Robustness:** Specifically optimized for low-contrast, noisy, and artifact-heavy semiconductor environments (TEM/SEM).
 - **Critical Dimension (CD) Focus:** Pre-configured workflows for measuring gate width, hole diameter, pitch, and multi-layer thin-film thickness.
 - **Agent-Ready Design:** Modular Pythonic API designed to be integrated into **Autonomous Industrial Agents** and Automated Test Equipment (ATE) workflows.
@@ -49,7 +61,7 @@ pip install -r requirements.txt
 
 ---
 
-## 🛠️ Usage Example
+## 🛠️ Usage Example (planned API)
 
 ```python
 from autotem import MetrologyAgent
@@ -72,18 +84,18 @@ print(f"Confidence Score: {results.confidence:.2f}")
 
 ---
 
-## 📊 Performance Benchmarks
+## 📊 Performance Benchmarks (design targets)
 
 | Metric | Standard CNN Approach | **AutoTEM-Metrology** |
 | :--- | :--- | :--- |
 | **Localization Method** | Bounding Box | **VLM + SAM 2 (Semantic)** |
 | **Edge Precision** | Pixel-level (1px) | **Sub-pixel (0.1px - 0.2px)** |
-| **System Error** | ~1.2mm | **≤0.3mm** |
+| **System Error** | ~1.2 nm | **≤0.3 nm** (target) |
 | **Repeatability (σ)** | Low | **High** |
 
 ---
 
-## 📁 Project Structure
+## 📁 Project Structure (planned)
 
 ```text
 AutoTEM-Metrology/
